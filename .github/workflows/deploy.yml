@@ -17,11 +17,11 @@ jobs:
     steps:
       - name: 拉取hexo源文件
         uses: actions/checkout@v4
-        with:
-          # persist-credentials: 'false'
-          repository: ${{ env.BLOG_SOURCE }}
-          ref: "main"
-          token: ${{ secrets.token }}
+        # with:
+        #   # persist-credentials: 'false'
+        #   repository: ${{ env.BLOG_SOURCE }}
+        #   ref: "main"
+        #   token: ${{ secrets.token }}
       - name: Generate
         run: |
           npm i && npx hexo g
