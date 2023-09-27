@@ -33,6 +33,6 @@ jobs:
       #       PUBLISH_DIR: ./public
       #       PERSONAL_TOKEN: ${{ secrets.token }}
       - name: 部署hexo cloudflare
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v3.1.1
         with:
           apiToken: ${{ secrets.CF_WORKERS_TOKEN }} # CF_WORKERS_TOKEN 为保存 Token 的 Secret 名
