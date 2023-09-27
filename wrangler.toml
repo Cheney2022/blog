@@ -1,0 +1,9 @@
+name = "blog-static-site"
+type = "webpack"
+route = 'www.wgqxin.cn'
+zone_id = '13e3696664a827db634c17e7ff24e6ba'
+usage_model = ''
+compatibility_flags = []
+workers_dev = false
+site = { bucket = "./public", entry-point = "workers-site" }
+compatibility_date = "2023-09-27"

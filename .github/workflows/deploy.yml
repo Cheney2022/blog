@@ -1,0 +1,38 @@
+name: 部署hexo静态页面
+
+env:
+  # blog部署的页面
+  BLOG: Cheney2022/blog
+
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: 拉取hexo源文件
+        uses: actions/checkout@v4
+        with:
+          # persist-credentials: 'false'
+          repository: ${{ env.BLOG_SOURCE }}
+          ref: "main"
+          token: ${{ secrets.token }}
+      - name: Generate
+        run: |
+          npm i && npx hexo g
+      #   - name: 部署hexo github
+      #     uses: theme-keep/hexo-deploy-github-pages-action@master
+      #     env:
+      #       PUBLISH_REPOSITORY: ${{ env.BLOG }}
+      #       BRANCH: gh-pages
+      #       PUBLISH_DIR: ./public
+      #       PERSONAL_TOKEN: ${{ secrets.token }}
+      - name: 部署hexo cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_WORKERS_TOKEN }} # CF_WORKERS_TOKEN 为保存 Token 的 Secret 名
