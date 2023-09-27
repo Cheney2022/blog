@@ -2,7 +2,7 @@ name = "blog-static-site"
 type = "webpack"
 route = 'www.wgqxin.cn'
 zone_id = '13e3696664a827db634c17e7ff24e6ba'
-usage_model = ''
+usage_model = 'bundled'
 compatibility_flags = []
 workers_dev = false
 site = { bucket = "./public", entry-point = "workers-site" }
